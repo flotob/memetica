@@ -182,3 +182,39 @@ interface CommitInfo {
     email: string;
   };
 }
+
+const REPO_OWNER = 'flotob';
+const REPO_NAME = 'memetica';
+const BASE_URL = 'https://api.github.com';
+
+export async function fetchMindsFromGitHub() {
+  // Fetch all files from the src/data/minds directory
+  const response = await fetch(
+    `${BASE_URL}/repos/${REPO_OWNER}/${REPO_NAME}/contents/src/data/minds`,
+    {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      }
+    }
+  );
+
+  if (!response.ok) {
+    console.error('GitHub API Error:', await response.text());
+    throw new Error('Failed to fetch minds from GitHub');
+  }
+
+  const files = await response.json();
+  
+  // Fetch content of each .yaml/.yml file
+  const minds = await Promise.all(
+    files
+      .filter((file: any) => file.name.endsWith('.yaml') || file.name.endsWith('.yml'))
+      .map(async (file: any) => {
+        const contentResponse = await fetch(file.download_url);
+        const yamlContent = await contentResponse.text();
+        return yaml.load(yamlContent) as Mind;
+      })
+  );
+
+  return minds;
+}
