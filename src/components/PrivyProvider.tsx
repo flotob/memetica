@@ -1,21 +1,24 @@
 'use client';
 
-import { PrivyProvider as Provider } from '@privy-io/react-auth';
+import { PrivyProvider as Privy } from '@privy-io/react-auth';
+import { useRouter } from 'next/navigation';
 
 export function PrivyProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
   return (
-    <Provider
+    <Privy
       appId="cm30ilzuk0353cm4fn2hevf87"
       config={{
-        loginMethods: ['email'],
+        loginMethods: ['email', 'google', 'github'],
         appearance: {
           theme: 'dark',
           accentColor: '#3b82f6',
-          showWalletLoginFirst: false,
         },
       }}
+      onSuccess={() => router.refresh()}
     >
       {children}
-    </Provider>
+    </Privy>
   );
 } 
