@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memetica
+
+> A platform for creating, sharing, and using specialized AI minds.
+
+[Screenshot of Mind Browser]
+
+## What is Memetica?
+
+Memetica is an open platform that allows you to create and use specialized AI minds - fine-tuned personalities and capabilities built on top of large language models. Each mind is designed for specific tasks or domains, from academic research to creative writing.
+
+## Features
+
+- 🧠 **Specialized Minds**: Access a growing library of purpose-built AI minds
+- 🔄 **Version Control**: All minds are version-controlled through Git
+- 🎯 **Task-Focused**: Each mind is optimized for specific use cases
+- 🌐 **Open Platform**: Contribute your own minds through pull requests
+- 🔌 **API Access**: Use minds programmatically through our REST API
 
 ## Getting Started
 
-First, run the development server:
+[Screenshot of Mind Details Page]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Using a Mind
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Browse the available minds at [memeti.ca](https://memeti.ca)
+2. Select a mind that matches your needs
+3. Start chatting directly in the browser or use the API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Creating a Mind
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork this repository
+2. Create a new YAML file in `src/data/minds/`
+3. Define your mind's personality and capabilities
+4. Submit a pull request
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+We welcome contributions! Whether you're fixing bugs, improving documentation, or creating new minds, please check out our [contribution guidelines](CONTRIBUTING.md).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Community
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📢 [Discord Server](https://discord.gg/memetica)
+- 🐦 [Twitter](https://twitter.com/memetica_ai)
+- 📝 [Blog](https://memeti.ca/blog)
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT © [Memetica](https://memeti.ca) 
