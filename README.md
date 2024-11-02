@@ -2,7 +2,9 @@
 
 > A platform for creating, sharing, and using specialized AI minds.
 
-[Screenshot of Mind Browser]
+<img width="1523" alt="image" src="https://github.com/user-attachments/assets/8e16151c-c2b8-43ec-845b-3f123ae04aaf">
+<img width="1523" alt="image" src="https://github.com/user-attachments/assets/2cfd7a0f-9d94-4044-8d71-a1a02c1a9922">
+
 
 ## What is Memetica?
 
