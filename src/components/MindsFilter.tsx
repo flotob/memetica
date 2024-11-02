@@ -28,29 +28,28 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
   };
 
   return (
-    <div className="space-y-4 p-4 bg-white rounded-lg shadow-sm">
-      <div>
-        <input
-          type="text"
-          placeholder="Search minds..."
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          value={filters.search}
-          onChange={(e) => handleChange({ search: e.target.value })}
-        />
-      </div>
+    <div className="space-y-6">
+      <input
+        type="text"
+        value={filters.search}
+        onChange={(e) => handleChange({ search: e.target.value })}
+        placeholder="Search minds..."
+        className="w-full px-4 py-2 bg-gray-800 rounded-lg text-white placeholder-gray-400 
+          border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
+          focus:border-transparent"
+      />
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Model
-        </label>
+        <h2 className="text-lg font-medium mb-2 text-white">Model</h2>
         <select
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           value={filters.model}
           onChange={(e) => handleChange({ model: e.target.value })}
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg text-white border border-gray-700 
+            focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="">All Models</option>
-          {models.map((model) => (
-            <option key={model} value={model}>
+          {models.map(model => (
+            <option key={model} value={model} className="text-white bg-gray-800">
               {model}
             </option>
           ))}
@@ -58,11 +57,9 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Tags
-        </label>
+        <h2 className="text-lg font-medium mb-2 text-white">Tags</h2>
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
+          {tags.map(tag => (
             <button
               key={tag}
               onClick={() => {
@@ -71,11 +68,10 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
                   : [...filters.tags, tag];
                 handleChange({ tags: newTags });
               }}
-              className={`px-3 py-1 rounded-full text-sm ${
-                filters.tags.includes(tag)
+              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors
+                ${filters.tags.includes(tag)
                   ? 'bg-blue-500 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
             >
               {tag}
             </button>
@@ -84,17 +80,16 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Sort By
-        </label>
+        <h2 className="text-lg font-medium mb-2 text-white">Sort By</h2>
         <select
-          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
           value={filters.sort}
           onChange={(e) => handleChange({ sort: e.target.value as FilterState['sort'] })}
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg text-white border border-gray-700 
+            focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          <option value="newest">Newest</option>
-          <option value="popular">Most Popular</option>
-          <option value="forked">Most Forked</option>
+          <option value="newest" className="text-white bg-gray-800">Newest</option>
+          <option value="popular" className="text-white bg-gray-800">Popular</option>
+          <option value="forked" className="text-white bg-gray-800">Most Forked</option>
         </select>
       </div>
     </div>

@@ -96,7 +96,7 @@ export default function MindsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Explore Minds</h1>
+      <h1 className="text-4xl font-bold mb-8 text-white">Explore Minds</h1>
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <aside className="lg:col-span-1">
