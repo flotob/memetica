@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from 'next/link';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const geistSans = localFont({
@@ -21,18 +23,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative min-h-screen">
-          <ThemeSwitcher />
-          {children}
-        </div>
+        <ThemeProvider>
+          <div className="relative min-h-screen">
+            <header className="container mx-auto px-4 py-6">
+              <Link 
+                href="/" 
+                className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
+              >
+                Memetica
+              </Link>
+            </header>
+            <ThemeSwitcher />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

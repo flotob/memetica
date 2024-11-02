@@ -9,9 +9,14 @@ export function MindCard({ mind }: MindCardProps) {
   return (
     <Link 
       href={`/minds/${mind.id}`} 
-      className="block hover:opacity-80 transition-opacity cursor-pointer"
+      className="block cursor-pointer"
     >
-      <div className="bg-gray-800 rounded-lg p-6">
+      <div className="bg-gray-800 rounded-lg p-6 
+        transition-all duration-200 ease-in-out
+        hover:transform hover:-translate-y-1 
+        hover:bg-gray-700
+        hover:shadow-lg hover:shadow-blue-500/10"
+      >
         <h2 className="text-xl font-semibold mb-2 text-white">
           {mind.name}
         </h2>
