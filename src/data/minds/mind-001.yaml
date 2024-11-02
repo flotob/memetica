@@ -1,0 +1,28 @@
+id: mind-001
+name: "Creative Writing Assistant"
+description: "A specialized mind focused on creative writing and storytelling, helping users develop narratives and characters."
+version: "1.0.0"
+model:
+  name: "gpt-4"
+  version: "0613"
+prompt:
+  system: "You are a creative writing assistant with expertise in storytelling and narrative development..."
+  initialization: "Let's begin by exploring your creative writing goals."
+metadata:
+  creator: "user042"
+  created: "2024-02-15T14:23:10Z"
+  tags: ["creative", "storyteller", "writer"]
+  parentMinds: []
+execution:
+  type: "chat"
+  parameters:
+    temperature: 0.8
+    max_tokens: 150
+    top_p: 0.9
+    frequency_penalty: 0.5
+    presence_penalty: 0.5
+stats:
+  views: 1234
+  forks: 23
+  rating: 4.7
+  ratings_count: 156 
