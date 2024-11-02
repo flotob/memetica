@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from 'next/link';
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,37 +29,34 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
-          <div className="relative min-h-screen">
-            <header className="container mx-auto px-4 py-6">
-              <div className="flex items-center justify-between">
+        <div className="relative min-h-screen">
+          <header className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-between">
+              <Link 
+                href="/" 
+                className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
+              >
+                Memetica
+              </Link>
+              <nav className="flex items-center gap-6">
                 <Link 
-                  href="/" 
-                  className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
+                  href="/minds" 
+                  className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Memetica
+                  Explore
                 </Link>
-                <nav className="flex items-center gap-6">
-                  <Link 
-                    href="/minds" 
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
-                    Explore
-                  </Link>
-                  <Link 
-                    href="/minds/create" 
-                    className="px-4 py-2 bg-blue-500 hover:bg-blue-600 
-                      text-white rounded-lg transition-colors"
-                  >
-                    Add Mind
-                  </Link>
-                  <ThemeSwitcher />
-                </nav>
-              </div>
-            </header>
-            {children}
-          </div>
-        </ThemeProvider>
+                <Link 
+                  href="/minds/create" 
+                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 
+                    text-white rounded-lg transition-colors"
+                >
+                  Add Mind
+                </Link>
+              </nav>
+            </div>
+          </header>
+          {children}
+        </div>
       </body>
     </html>
   );
