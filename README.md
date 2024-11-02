@@ -2,7 +2,8 @@
 
 > A platform for creating, sharing, and using specialized AI minds.
 
-<img width="1523" alt="image" src="https://github.com/user-attachments/assets/8e16151c-c2b8-43ec-845b-3f123ae04aaf">
+<img width="1523" alt="image" src="https://github.com/user-attachments/assets/bdeb699d-aa59-4482-8777-f1a9f4ee284d">
+
 
 
 ## What is Memetica?
@@ -19,7 +20,8 @@ Memetica is an open platform that allows you to create and use specialized AI mi
 
 ## Getting Started
 
-<img width="1523" alt="image" src="https://github.com/user-attachments/assets/2cfd7a0f-9d94-4044-8d71-a1a02c1a9922">
+<img width="1523" alt="image" src="https://github.com/user-attachments/assets/222ab263-e01a-4265-9ca8-eecda785c326">
+
 
 ### Using a Mind
 
