@@ -17,9 +17,18 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
   const [filters, setFilters] = useState<FilterState>({
     search: '',
     tags: [],
-    model: '',
+    model: 'all',
     sort: 'newest'
   });
+
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const toggleTag = (tag: string) => {
+    const newTags = filters.tags.includes(tag)
+      ? filters.tags.filter(t => t !== tag)
+      : [...filters.tags, tag];
+    handleChange({ tags: newTags });
+  };
 
   const handleChange = (updates: Partial<FilterState>) => {
     const newFilters = { ...filters, ...updates };
@@ -32,36 +41,31 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
       <input
         type="text"
         placeholder="Search minds..."
-        className="w-full px-4 py-2.5 rounded-lg
-          bg-input-background
-          border border-input-border
-          text-input-text placeholder-input-placeholder
-          focus:outline-none focus:ring-2 focus:ring-blue-500
-          transition-colors"
+        className="w-full rounded-lg border border-border-color bg-card-background px-4 py-2 text-foreground"
+        value={filters.search}
+        onChange={(e) => handleChange({ search: e.target.value })}
       />
 
       <select
-        className="w-full px-4 py-2.5 rounded-lg
-          bg-input-background
-          border border-input-border
-          text-input-text
-          focus:outline-none focus:ring-2 focus:ring-blue-500
-          transition-colors"
+        value={filters.model}
+        onChange={(e) => handleChange({ model: e.target.value })}
+        className="w-full appearance-none rounded-lg border border-border-color bg-card-background px-4 pr-10 py-2 text-foreground"
       >
-        <option>All Models</option>
-        <option>GPT-4</option>
-        <option>Claude-2</option>
+        <option value="all">All Models</option>
+        <option value="gpt-4">GPT-4</option>
+        <option value="claude-2">Claude-2</option>
       </select>
 
       <div className="flex flex-wrap gap-2">
         {tags.map(tag => (
           <button
             key={tag}
-            className="px-3 py-1.5 rounded-full
-              bg-tag-background text-tag-text
-              hover:bg-tag-hover
-              text-sm font-medium
-              transition-colors"
+            onClick={() => toggleTag(tag)}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+              filters.tags.includes(tag)
+                ? "bg-blue-500 text-white"
+                : "bg-tag-background text-text-secondary hover:bg-tag-hover"
+            }`}
           >
             {tag}
           </button>
@@ -69,12 +73,9 @@ export function MindsFilter({ tags, models, onFilterChange }: MindsFilterProps) 
       </div>
 
       <select
-        className="w-full px-4 py-2.5 rounded-lg
-          bg-input-background
-          border border-input-border
-          text-input-text
-          focus:outline-none focus:ring-2 focus:ring-blue-500
-          transition-colors"
+        value={filters.sort}
+        onChange={(e) => handleChange({ sort: e.target.value as FilterState['sort'] })}
+        className="w-full appearance-none rounded-lg border border-border-color bg-card-background px-4 pr-10 py-2 text-foreground"
       >
         <option>Newest</option>
         <option>Popular</option>

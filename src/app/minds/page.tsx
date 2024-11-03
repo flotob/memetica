@@ -45,7 +45,12 @@ export default function MindsPage() {
 
     // Apply model filter
     if (filters.model) {
-      filtered = filtered.filter(mind => mind.model.name === filters.model);
+      filtered = filtered.filter(mind => {
+        if (filters.model !== 'all') {
+          if (mind.model.name !== filters.model) return false;
+        }
+        return true;
+      });
     }
 
     // Apply tags filter
