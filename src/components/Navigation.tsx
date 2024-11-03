@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { UserProfile } from './UserProfile';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,18 +11,22 @@ export function Navigation() {
   return (
     <>
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-3xl font-bold text-white">
+        <Link href="/" className="text-3xl font-bold text-foreground">
           Memetica
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/minds" className="text-gray-300 hover:text-white h-10 flex items-center">
+          <Link 
+            href="/minds" 
+            className="text-text-secondary hover:text-foreground h-10 flex items-center transition-colors"
+          >
             Explore
           </Link>
-          <Link href="/minds/create" className="h-10 flex items-center px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg">
+          <Link href="/minds/create" className="h-10 flex items-center px-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">
             Add Mind
           </Link>
+          <ThemeSwitcher />
           <div className="h-10">
             <UserProfile />
           </div>
@@ -59,18 +64,18 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-gray-900 border-t border-gray-800 shadow-lg">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-card-background border-t border-border-color shadow-lg">
           <div className="container mx-auto px-4 py-2 flex flex-col gap-2">
             <Link 
               href="/minds" 
-              className="text-gray-300 hover:text-white py-3 px-4 rounded-lg hover:bg-gray-800"
+              className="text-text-secondary hover:text-foreground py-3 px-4 rounded-lg hover:bg-card-hover transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Explore
             </Link>
             <Link 
               href="/minds/create" 
-              className="text-white py-3 px-4 bg-blue-500 hover:bg-blue-600 rounded-lg"
+              className="text-white py-3 px-4 bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Add Mind

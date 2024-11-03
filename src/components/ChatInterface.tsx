@@ -67,19 +67,23 @@ export function ChatInterface({ mind }: ChatInterfaceProps) {
         )}
       </div>
 
-      <form onSubmit={handleSubmit} className="p-4 border-t border-gray-800">
+      <form onSubmit={handleSubmit} className="p-4 border-t border-border-color">
         <div className="flex gap-2">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1 bg-gray-900 text-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 bg-card-background text-foreground rounded-lg px-4 py-2 
+              border border-border-color
+              focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
             disabled={isLoading || !message.trim()}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg 
+              hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed 
+              transition-colors"
           >
             Send
           </button>

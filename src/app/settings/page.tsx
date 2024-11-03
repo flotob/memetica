@@ -23,33 +23,33 @@ export default function SettingsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold text-white mb-8">Settings</h1>
 
         <div className="space-y-6">
           {/* Profile Section */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-white mb-4">Profile Settings</h2>
+          <div className="bg-card-background border border-border-color rounded-lg p-6">
+            <h2 className="text-foreground font-semibold mb-4">Profile Settings</h2>
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-1">Email Address</label>
-                <div className="text-white bg-gray-700 rounded-lg px-4 py-2">
+                <label className="block text-sm font-medium text-text-secondary mb-1">Email Address</label>
+                <div className="bg-card-background border border-border-color rounded-lg p-4 font-mono text-text-secondary">
                   {user?.email?.address || 'No email connected'}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-1">User ID</label>
-                <div className="text-white bg-gray-700 rounded-lg px-4 py-2 font-mono text-sm">
+                <label className="block text-sm font-medium text-text-secondary mb-1">User ID</label>
+                <div className="bg-card-background border border-border-color rounded-lg p-4 font-mono text-text-secondary">
                   {user?.id}
                 </div>
               </div>
 
               {walletAddress && (
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-1">Wallet Address</label>
-                  <div className="text-white bg-gray-700 rounded-lg px-4 py-2 font-mono text-sm">
+                  <label className="block text-sm font-medium text-text-secondary mb-1">Wallet Address</label>
+                  <div className="bg-card-background border border-border-color rounded-lg p-4 font-mono text-text-secondary">
                     {walletAddress}
                   </div>
                 </div>
@@ -58,16 +58,16 @@ export default function SettingsPage() {
           </div>
 
           {/* Connections Section */}
-          <div className="bg-gray-800 rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-white mb-4">Connected Accounts</h2>
+          <div className="bg-card-background border border-border-color rounded-lg p-6">
+            <h2 className="text-foreground font-semibold mb-4">Connected Accounts</h2>
             
             <div className="space-y-4">
               {/* Wallet Status */}
               {!hasWallet && (
                 <div className="flex items-center justify-between py-3 px-4 bg-gray-700/50 rounded-lg">
                   <div>
-                    <h3 className="text-white font-medium">Wallet</h3>
-                    <p className="text-sm text-gray-400">Create a wallet to participate in the ecosystem</p>
+                    <h3 className="text-foreground font-medium">Wallet</h3>
+                    <p className="text-sm text-text-secondary">Create a wallet to participate in the ecosystem</p>
                   </div>
                   <button
                     onClick={() => createWallet()}
@@ -80,15 +80,12 @@ export default function SettingsPage() {
 
               {/* GitHub Status */}
               {!hasGithub && (
-                <div className="flex items-center justify-between py-3 px-4 bg-gray-700/50 rounded-lg">
+                <div className="bg-card-background border border-border-color rounded-lg p-6 flex items-center justify-between">
                   <div>
-                    <h3 className="text-white font-medium">GitHub</h3>
-                    <p className="text-sm text-gray-400">Connect your GitHub account to showcase your contributions</p>
+                    <h3 className="text-foreground text-lg font-medium mb-1">GitHub</h3>
+                    <p className="text-text-secondary">Connect your GitHub account to showcase your contributions</p>
                   </div>
-                  <button
-                    onClick={() => linkGithub()}
-                    className="px-4 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
-                  >
+                  <button className="bg-card-background border border-border-color hover:bg-card-hover text-foreground px-4 py-2 rounded-lg transition-colors">
                     Connect GitHub
                   </button>
                 </div>
